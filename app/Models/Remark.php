@@ -10,7 +10,9 @@ class Remark extends Model
 {
     use HasFactory;
 
-    public function tasks() {
-        $this->belongsTo(Task::class);
+    protected $fillable = ['description'];
+
+    public function task() {
+        return $this->belongsTo(Task::class);
     }
 }

@@ -10,7 +10,9 @@ class Task extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['title', 'description', 'done'];
+
     public function remarks() {
-        $this->hasMany(Remark::class);
+        return $this->hasMany(Remark::class);
     }
 }
