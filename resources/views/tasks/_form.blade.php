@@ -1,7 +1,7 @@
 @php
     $formActions = [
         'tasks.create' => route('tasks.store'),
-        'tasks.show' => route('tasks.update', ['id' => $task->id ?? 0]),
+        'tasks.show' => route('tasks.update', ['task' => $task->id ?? 0]),
     ];
     $isEditing = Route::currentRouteName() === 'tasks.show';
 @endphp
@@ -51,7 +51,7 @@
 <div class="d-flex align-items-center">
     <button form="task-form" type="submit" class="btn btn-success me-2">Salvar</button>
     @if($isEditing)
-        <form action="{{ route('tasks.destroy', ['id' => $task->id]) }}" method="POST">
+        <form action="{{ route('tasks.destroy', ['task' => $task->id]) }}" method="POST">
             @method('DELETE')
             @csrf
             <button type="submit" class="btn btn-danger">Excluir</button>
@@ -63,7 +63,7 @@
     <hr>
     <div class="remarks" class="my-4">
         <h3>Observações</h3>
-        <form action="{{ route('remarks.store', ['id' => $task->id]) }}" method="POST" class="mb-2">
+        <form action="{{ route('tasks.remarks.store', ['task' => $task->id]) }}" method="POST" class="mb-2">
             @csrf
             <div class="mb-3 d-flex align-items-center justify-content-between">
                 <input type="text" name="remark" id="remark" class="form-control w-75 me-4">
@@ -78,7 +78,7 @@
                         class="list-group-item d-flex align-items-center justify-content-between"
                     >
                         <span>{{ $remark->description }}</span>
-                        <form action="{{ route('remarks.destroy', ['id' => $remark->id]) }}" method="POST">
+                        <form action="{{ route('remarks.destroy', ['remark' => $remark->id]) }}" method="POST">
                             @method('DELETE')
                             @csrf
                             <button type="submit" class="btn btn-danger">Excluir</button>

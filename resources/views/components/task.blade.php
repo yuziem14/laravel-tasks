@@ -1,4 +1,4 @@
-<a href="{{ route('tasks.show', ['id' => $task->id]) }}" class="text-decoration-none text-dark card">
+<a href="{{ route('tasks.show', ['task' => $task->id]) }}" class="text-decoration-none text-dark card">
     <div class="card-header d-flex align-items-center justify-content-between">
         <h3 class="card-title flex-grow-1">{{ $task->title }}</h3>
         <span class="badge bg-primary">{{ $task->remarks_count }}</span>

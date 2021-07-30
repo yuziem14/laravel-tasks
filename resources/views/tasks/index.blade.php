@@ -9,7 +9,7 @@
             </div>
             <div class="tasks row mt-4">
                 @foreach($tasks as $task)
-                    <div class="col-sm-12 col-md-6 col-lg-4">
+                    <div class="col-sm-12 col-md-6 col-lg-4 mb-2">
                         <x-task :task="$task"/>
                     </div>
                 @endforeach
